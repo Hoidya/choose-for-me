@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Wheel from '@/components/Wheel'
@@ -9,7 +9,7 @@ import Card from '@/components/Card'
 import Coin from '@/components/Coin'
 import type { ChoiceType } from '@/lib/supabase'
 
-export default function PlayPage() {
+function PlayContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [question, setQuestion] = useState('')
@@ -160,6 +160,18 @@ export default function PlayPage() {
         )}
       </main>
     </div>
+  )
+}
+
+export default function PlayPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-50 flex items-center justify-center">
+        <p className="text-neutral-600">加载中...</p>
+      </div>
+    }>
+      <PlayContent />
+    </Suspense>
   )
 }
 
