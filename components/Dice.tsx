@@ -33,7 +33,7 @@ export default function Dice({ options, onResult, isRolling }: DiceProps) {
   }, [isRolling, options, onResult])
 
   const renderDiceFace = (value: number) => {
-    const dots = []
+    const dots: JSX.Element[] = []
     const positions: { [key: number]: number[][] } = {
       1: [[50, 50]],
       2: [[30, 30], [70, 70]],
