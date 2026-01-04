@@ -10,7 +10,7 @@
     "tunnel": "lt --port 3000 --subdomain choose-for-me"
   },
   "dependencies": {
-    "next": "14.0.4",
+    "next": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@supabase/supabase-js": "^2.39.0",
